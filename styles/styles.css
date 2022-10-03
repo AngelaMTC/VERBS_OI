@@ -1,0 +1,43 @@
+#h3 {
+    color: aliceblue;
+}
+
+.col-9{
+    background-color: black;
+    color: aliceblue;
+}
+
+.col-3{
+    background-color: whitesmoke;
+    color: black;
+}
+
+#next, .container{
+    text-align: center;
+}
+
+
+#verbs-container{
+    margin: 0 35%
+}
+
+.verbs-answer{
+    display: block;
+}
+
+.rightAnswer, .rightAnswer:hover{
+    background-color: greenyellow;
+    border-color: greenyellow;
+    color: aliceblue;
+}
+
+.wrongANSWER {
+    background-color: red;
+    border-color: red;
+    color: aliceblue;
+}
+
+#next{
+    margin-top: 8rem;
+    color: green;
+}

@@ -1,0 +1,6 @@
+{
+    "Saludo":{
+        "prefix": "saludo",
+        "body":"<h1>¡Quiuboles$1,$1bienvenido!</h1>"
+    }
+}
