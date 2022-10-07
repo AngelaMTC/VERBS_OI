@@ -9,7 +9,7 @@ const fourth = document.getElementById('fourth-verb');
 
 const next = document.getElementById('next');
 const verbsCounter = document.getElementById('verbs-counter');
-const allRightCounter = document.getElementById('all-right-answer');
+const allRightCounter = document.getElementById('all-right-answers');
 const verbsContainer = document.getElementById('verbs-container');
 
 // Acceder a un Array:
@@ -17,7 +17,7 @@ const numberOfVerbs = verbs.length;
 console.log(numberOfVerbs);
 
 
-let answerRoulette = [0, 1, 1, 1];
+let answerRoullette = [0, 1, 1, 1];
 let everyNumberOfVerbs = [];
 let rightAnswer;
 let allRightAnswerCounter = 0;
@@ -74,11 +74,57 @@ function shuffleAnswer(array){
     let numberOfAnswerButtons = array.length;
     let randomIndex;
 
-    while(numberOfAnswerButtons !=0){
+    while(numberOfAnswerButtons != 0){
         randomIndex = Math.floor(Math.random()*numberOfAnswerButtons);
         numberOfAnswerButtons--;
         //Intercambio de numbers:
         [array[numberOfAnswerButtons], array [randomIndex] = array[randomIndex], array[numberOfAnswerButtons]]
+    }
+}
+function isitRight_(answer){
+    return answer = rightAnswer?true:false;
+}
+
+function randomVerbo(notThisOne){
+    theOne = Math.floor(Math.random()*verbsContainer.length);
+    //Correcta más otras no difrentes, selecciona cualquiera de los verbos en español, regresa al azar:
+    return theOne == notThisOne?randomVerbo(notThisOne):theOne;
+}
+
+function ponerVerbo(){
+    answerRoullette = shuffleAnswer(answerRoullette);
+    let randomPosition = everyNumberOfVerbs[lasPosition];
+    let imgText = "<img src='img/'" + verbs [randomPosition] + ".jpg";
+    imgText += "height='140px' width='100px'>"
+
+    first.classList.add("btn", "btn-otline-primary", "btn-md");
+    second.classList.add("btn", "btn-otline-primary", "btn-md");
+    third.classList.add("btn", "btn-otline-primary", "btn-md");
+    fourth.classList.add("btn", "btn-otline-primary", "btn-md");
+
+    if(lasPosition >= 0){
+        var just_position = lasPosition-1;
+        verbsCounter.innerHTML = '' + just_position + '/' + numberOfVerbs;
+        allRightAnswerCounter.innerHTML = 'Right Answers:' + rightAnswer;
+        
+        showVerb.innerHTML = verbs[randomPosition];
+        showImage.innerHTML = imgText;
+        showAudio.src = "audio/" + verbs[randomPosition] + ".mp3";
+        showAudio.play();
+        
+        first.innerHTML = !answerRoullette[0]?verbos[randomPosition]:verbos[randomVerbo(randomPosition)]
+        second.innerHTML = !answerRoullette[1]?verbos[randomPosition]:verbos[randomVerbo(randomPosition)]
+        third.innerHTML = !answerRoullette[2]?verbos[randomPosition]:verbos[randomVerbo(randomPosition)]
+        fourth.innerHTML = !answerRoullette[3]?verbos[randomPosition]:verbos[randomVerbo(randomPosition)]
+        
+        rightAnswer = verbos[randomPosition];
+        //Atrás para adelante:
+        lasPosition = lasPosition-1;
+    }else{
+        verbsCounter.innerHTML = "0 /" + numberOfVerbs;
+        allRightCounter.innerHTML = "Right answers:" + rightAnswerCounter;
+        showVerb.innerHTML = "Thank you!";
+        verbsContainer.innerHTML = "";
     }
 }
 
