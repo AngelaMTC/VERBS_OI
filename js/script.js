@@ -47,7 +47,7 @@ function btnEffect(itsRight, button) {
         setTimeout(function () {
             button.classList.remove('rigthAnswer');
         }, 1000);
-        rightAnswerCounter = rightAnswerCounter + 1;
+        allRightAnswerCounter = allRightAnswerCounter + 1;
     } else {
         button.classList.add('wrongAnswer');
         setTimeout(function () {
@@ -80,7 +80,9 @@ function shuffleAnswer(array){
         //Intercambio de numbers:
         [array[numberOfAnswerButtons], array [randomIndex] = array[randomIndex], array[numberOfAnswerButtons]]
     }
+    return array;
 }
+
 function isitRight_(answer){
     return answer = rightAnswer?true:false;
 }
@@ -103,7 +105,7 @@ function ponerVerbo(){
     fourth.classList.add("btn", "btn-otline-primary", "btn-md");
 
     if(lasPosition >= 0){
-        var just_position = lasPosition-1;
+        var just_position = lasPosition+1;
         verbsCounter.innerHTML = '' + just_position + '/' + numberOfVerbs;
         allRightAnswerCounter.innerHTML = 'Right Answers:' + rightAnswer;
         
