@@ -37,7 +37,8 @@ const verbs = [
     'show',
     'need',
     'arrive',
-    'look'
+    'look',
+    'want'
 ]
 
 const verbos = [
@@ -79,5 +80,6 @@ const verbos = [
     'mostrar',
     'necesitar',
     'llegar',
-    'mirar'
+    'mirar',
+    'querer'
 ]
