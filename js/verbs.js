@@ -67,7 +67,7 @@ const verbos = [
     'limpiar',
     'trabajar',
     'vivir',
-    'mendigar',
+    'implorar',
     'leer',
     'pintar',
     'escalar',

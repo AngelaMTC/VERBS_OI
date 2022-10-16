@@ -12,39 +12,49 @@
 </head>
 
 <body>
-    </header>
     <header>
-        <div>
             <div class="row">
                 <div class="col-9">
-                    <h3>EXAMPLE</h3>
+                    <h3 class="title-game">VERBS | Optativa</h3>
                 </div>
                 <div class="col-3">
-                    <h1>¡Quiuboles,bienvenido!</h1>
+                    <p id="verbs-counter"></p>
                 </div>
-            </div>
+    </header>
 
-            <div id="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16" id="next">
-                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                  </svg>
-                <h1 id="showVerb">Play to Start</h1>
-                <div class="container">
-                    <div id="verbs-container">
-                        <div id="showImage"></div>
-                        <audio id="showAudio"></audio>
-                        <p id="first-verb" class="verbs-answer"></p>
-                        <p id="second-verb" class="verbs-answer"></p>
-                        <p id="third-verb" class="verbs-answer"></p>
-                        <p id="fourth-verb" class="verbs-answer"></p>
-                    </div>
-                    <small class="counter">
-                        <span id="all-right-answers"></span>
-                    </small>
+
+    <div class="text-center">
+        <div id="next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+            class="bi bi-caret-right-fill" viewBox="0 0 16 16" id="next">
+            <path
+                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+    </div>
+        <h1 id="showVerb">Play to Start</h1>
+        <div class="container">
+            <div id="verbs-container">
+                <div id="showImage"></div>
+                <audio id="showAudio"></audio>
+                <div class="verbs">
+                    <p id="first-verb" class="verbs-answer"></p>
+                    <p id="second-verb" class="verbs-answer"></p>
+                    <p id="third-verb" class="verbs-answer"></p>
+                    <p id="fourth-verb" class="verbs-answer"></p>
                 </div>
+               
             </div>
+            <small class="counter">
+                <span id="all-right-answers"></span>
+            </small>
         </div>
+    </div>
 
+    <footer>
+        <h3>Talamantes Castañeda Ángela María ~ 191243</h3>
+    </footer>
+
+</body>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -54,6 +64,5 @@
         crossorigin="anonymous"></script>
     <script src="./js/verbs.js"></script>
     <script src="./js/script.js"></script>
-</body>
 
 </html>

@@ -29,11 +29,11 @@ next.addEventListener('click', function () {
 
 makeRandomList();
 
-let lasPosition = everyNumberOfVerbs.length - 1;
+let lastPosition = everyNumberOfVerbs.length - 1;
 
 //Llamar la función arriba o abajo:
 function makeRandomList() {
-    for (var i = o; i < numberOfVerbs; i++) {
+    for (var i = 0; i < numberOfVerbs; i++) {
         everyNumberOfVerbs.push(i);
     }
     // everyNumberOfVerbs = everyNumberOfVerbs.sort(); //Alphabetic order
@@ -54,6 +54,9 @@ function btnEffect(itsRight, button) {
             button.classList.remove('wrongAnswer');
         }, 1000);
     }
+    setTimeout(function () {
+        ponerVerbo();
+    }, 500);
 }
 
 first.addEventListener('click', function () {
@@ -70,67 +73,63 @@ fourth.addEventListener('click', function () {
 });
 
 //Move the answer randomly;
-function shuffleAnswer(array){
+function shuffleAnswer(array) {
     let numberOfAnswerButtons = array.length;
     let randomIndex;
 
-    while(numberOfAnswerButtons != 0){
-        randomIndex = Math.floor(Math.random()*numberOfAnswerButtons);
+    while (numberOfAnswerButtons != 0) {
+        randomIndex = Math.floor(Math.random() * numberOfAnswerButtons);
         numberOfAnswerButtons--;
         //Intercambio de numbers:
-        [array[numberOfAnswerButtons], array [randomIndex] = array[randomIndex], array[numberOfAnswerButtons]]
+        [array[numberOfAnswerButtons], array[randomIndex]] = [
+            array[randomIndex], array[numberOfAnswerButtons]];
     }
     return array;
 }
 
-function isitRight_(answer){
-    return answer = rightAnswer?true:false;
+function isitRight_(answer) {
+    return answer == rightAnswer ? true : false;
 }
 
-function randomVerbo(notThisOne){
-    theOne = Math.floor(Math.random()*verbsContainer.length);
+function randomVerbo(notThisOne) {
+    theOne = Math.floor(Math.random() * verbos.length);
     //Correcta más otras no difrentes, selecciona cualquiera de los verbos en español, regresa al azar:
-    return theOne == notThisOne?randomVerbo(notThisOne):theOne;
+    return theOne == notThisOne ? randomVerbo(notThisOne) : theOne;
 }
 
-function ponerVerbo(){
+function ponerVerbo() {
     answerRoullette = shuffleAnswer(answerRoullette);
-    let randomPosition = everyNumberOfVerbs[lasPosition];
-    let imgText = "<img src='img/'" + verbs [randomPosition] + ".jpg";
-    imgText += "height='140px' width='100px'>"
+    let randomPosition = everyNumberOfVerbs[lastPosition];
+    let imgText = "<img src='images/" + verbs[randomPosition] + ".jpg' height:'200px' width='200px'>";
+    // imgText += "height='140px' width='100px'>"
 
     first.classList.add("btn", "btn-otline-primary", "btn-md");
     second.classList.add("btn", "btn-otline-primary", "btn-md");
     third.classList.add("btn", "btn-otline-primary", "btn-md");
     fourth.classList.add("btn", "btn-otline-primary", "btn-md");
 
-    if(lasPosition >= 0){
-        var just_position = lasPosition+1;
+    if (lastPosition >= 0) {
+        var just_position = lastPosition + 1;
         verbsCounter.innerHTML = '' + just_position + '/' + numberOfVerbs;
-        allRightAnswerCounter.innerHTML = 'Right Answers:' + rightAnswer;
-        
+        allRightCounter.innerHTML = 'Right Answers: ' + allRightAnswerCounter;
+
         showVerb.innerHTML = verbs[randomPosition];
         showImage.innerHTML = imgText;
-        showAudio.src = "audio/" + verbs[randomPosition] + ".mp3";
+        showAudio.src = "./audios/" + verbs[randomPosition] + ".mp3";
         showAudio.play();
-        
-        first.innerHTML = !answerRoullette[0]?verbos[randomPosition]:verbos[randomVerbo(randomPosition)]
-        second.innerHTML = !answerRoullette[1]?verbos[randomPosition]:verbos[randomVerbo(randomPosition)]
-        third.innerHTML = !answerRoullette[2]?verbos[randomPosition]:verbos[randomVerbo(randomPosition)]
-        fourth.innerHTML = !answerRoullette[3]?verbos[randomPosition]:verbos[randomVerbo(randomPosition)]
-        
+
+        first.innerHTML = !answerRoullette[0] ? verbos[randomPosition] : verbos[randomVerbo(randomPosition)]
+        second.innerHTML = !answerRoullette[1] ? verbos[randomPosition] : verbos[randomVerbo(randomPosition)]
+        third.innerHTML = !answerRoullette[2] ? verbos[randomPosition] : verbos[randomVerbo(randomPosition)]
+        fourth.innerHTML = !answerRoullette[3] ? verbos[randomPosition] : verbos[randomVerbo(randomPosition)]
+
         rightAnswer = verbos[randomPosition];
         //Atrás para adelante:
-        lasPosition = lasPosition-1;
-    }else{
+        lastPosition = lastPosition - 1;
+    } else {
         verbsCounter.innerHTML = "0 /" + numberOfVerbs;
-        allRightCounter.innerHTML = "Right answers:" + rightAnswerCounter;
+        allRightCounter.innerHTML = "Right answers:" + allRightAnswerCounter;
         showVerb.innerHTML = "Thank you!";
         verbsContainer.innerHTML = "";
     }
-}
-
-function ponerVerbo() {
-    // showVerb.innerHTML = ":3"
-    return true;
 }
