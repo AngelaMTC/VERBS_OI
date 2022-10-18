@@ -47,7 +47,7 @@ function btnEffect(itsRight, button) {
         setTimeout(function () {
             button.classList.remove('rigthAnswer');
         }, 1000);
-        allRightAnswerCounter = allRightAnswerCounter + 1;
+        allRightAnswerCounter ++;
     } else {
         button.classList.add('wrongAnswer');
         setTimeout(function () {
@@ -73,18 +73,18 @@ fourth.addEventListener('click', function () {
 });
 
 //Move the answer randomly;
-function shuffleAnswer(array) {
-    let numberOfAnswerButtons = array.length;
+function shuffleAnswer(dataVerbs) {
+    let numberOfAnswerButtons = dataVerbs.length;
     let randomIndex;
 
     while (numberOfAnswerButtons != 0) {
         randomIndex = Math.floor(Math.random() * numberOfAnswerButtons);
         numberOfAnswerButtons--;
         //Intercambio de numbers:
-        [array[numberOfAnswerButtons], array[randomIndex]] = [
-            array[randomIndex], array[numberOfAnswerButtons]];
+        [dataVerbs[numberOfAnswerButtons], dataVerbs[randomIndex]] = [
+            dataVerbs[randomIndex], dataVerbs[numberOfAnswerButtons]];
     }
-    return array;
+    return dataVerbs;
 }
 
 function isitRight_(answer) {
